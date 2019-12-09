@@ -15,3 +15,4 @@ macでのMIMEタイプを`application/wasm`にできればlocalhostでも検証�
 
 - `https://buildersbox.corp-sansan.com/entry/2019/02/14/113000`
 - `https://qiita.com/_x8/items/eacd113ee25bc46b3bd0`
+- `https://sgswtky.github.io/post/golang-wasm/`
