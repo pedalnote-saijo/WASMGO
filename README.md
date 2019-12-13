@@ -11,6 +11,16 @@ GCSに保存した際は`application/wasm`になるので、それで期待し�
 
 macでのMIMEタイプを`application/wasm`にできればlocalhostでも検証できると思う
 
+## 全て解決するために
+
+ファイルサーバー的な物を用意した
+
+返却ファイルのハンドリングは、strings.Splitで良いのか・・・、多分良くないと思う
+
+- path.Splitだと、dir+fileに分けられてしまうう -> /static/img/aaa.png => /static/img/, aaa.png
+- path.Dir一個づつ減らしていくあるかも -> /static/img/aaa.png => /static/img => /static => / => /
+
+
 ## 参考
 
 - `https://buildersbox.corp-sansan.com/entry/2019/02/14/113000`
