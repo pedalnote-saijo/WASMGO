@@ -27,7 +27,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
-	log.Printf("url: %s, %s, %d, %v", r.URL.Path, strs[0], len(strs), strs)
+	log.Printf("url: %s", r.URL.Path)
 	// r.URL.Path == "/" -> ["",""]
 	// r.URL.Path == "/js/wasm_exec.js" -> ["","js","wasm_exec.js"]
 	switch strs[1] {
@@ -38,13 +38,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 		retWasmFile(w, r)
 		return
 	case "js":
-		filepath := strings.Split(r.URL.Path, "/"+strs[1]+"/")
-		log.Printf("path: %s", filepath[1])
-		if len(filepath) <= 1 {
-			http.NotFound(w, r)
-			return
-		}
-		http.ServeFile(w, r, "js/"+filepath[1])
+		http.ServeFile(w, r, r.URL.Path[1:])
 		return
 	}
 	http.NotFound(w, r)
