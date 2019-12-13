@@ -2,6 +2,8 @@
 
 ## うまくいっていない点
 
+`GOOS=js GOARCH=wasm`
+
 `go build -o test.wasm`
 
 test.wasmのMIMEタイプが `application/octet-stream; charset=binary`
@@ -11,7 +13,7 @@ GCSに保存した際は`application/wasm`になるので、それで期待し�
 
 macでのMIMEタイプを`application/wasm`にできればlocalhostでも検証できると思う
 
-## 全て解決するために
+## すべて解決するために
 
 ファイルサーバー的な物を用意した
 
